@@ -12,6 +12,7 @@ include: "/explores_balance_sheet/*.explore"
 datagroup: cortex_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
+
 }
 
 persist_with: cortex_default_datagroup
@@ -184,14 +185,14 @@ explore: sales_orders {
           and (${sales_order_partner_function.item_posnr} is Null or ${sales_order_partner_function_header.item_posnr} = '000000');;
     }
 
-    sql_always_where: ${client_mandt}='{{ _user_attributes['client_id_rep'] }}' ;;
+    sql_always_where: ${client_mandt}='{{ _user_attributes['bio_nuc_client_id_rep'] }}' ;;
 
   }
 
   ########################################### Finanace Dashboards ########################################################################
 
 explore: vendor_performance {
-  sql_always_where: ${vendor_performance.client_mandt} = '{{ _user_attributes['client_id_rep'] }}'
+  sql_always_where: ${vendor_performance.client_mandt} = '{{ _user_attributes['bio_nuc_client_id_rep'] }}'
     and ${language_map.looker_locale}='{{ _user_attributes['locale'] }}'
     ;;
 
@@ -215,32 +216,32 @@ explore: vendor_performance {
 }
 
 explore: days_payable_outstanding_v2 {
-  sql_always_where: ${client_mandt} = '{{ _user_attributes['client_id_rep'] }}' ;;
+  sql_always_where: ${client_mandt} = '{{ _user_attributes['bio_nuc_client_id_rep'] }}' ;;
 }
 
 
 explore: accounts_payable_v2 {
 
-  sql_always_where: ${accounts_payable_v2.client_mandt} =  '{{ _user_attributes['client_id_rep'] }}';;
+  sql_always_where: ${accounts_payable_v2.client_mandt} =  '{{ _user_attributes['bio_nuc_client_id_rep'] }}';;
 }
 
 explore: cash_discount_utilization {
-  sql_always_where: ${client_mandt} = '{{ _user_attributes['client_id_rep'] }}';;
+  sql_always_where: ${client_mandt} = '{{ _user_attributes['bio_nuc_client_id_rep'] }}';;
 }
 
 
 explore: accounts_payable_overview_v2 {
 
-  sql_always_where: ${accounts_payable_overview_v2.client_mandt} =  '{{ _user_attributes['client_id_rep'] }}' ;;
+  sql_always_where: ${accounts_payable_overview_v2.client_mandt} =  '{{ _user_attributes['bio_nuc_client_id_rep'] }}' ;;
 }
 
 explore: accounts_payable_turnover_v2 {
 
-  sql_always_where: ${accounts_payable_turnover_v2.client_mandt} = '{{ _user_attributes['client_id_rep'] }}' ;;
+  sql_always_where: ${accounts_payable_turnover_v2.client_mandt} = '{{ _user_attributes['bio_nuc_client_id_rep'] }}' ;;
 }
 
 explore: materials_valuation_v2 {
-  sql_always_where: ${client_mandt} = '{{ _user_attributes['client_id_rep'] }}' ;;
+  sql_always_where: ${client_mandt} = '{{ _user_attributes['bio_nuc_client_id_rep'] }}' ;;
 }
 
 ########################################### Finanace Dashboards End ########################################################################
@@ -249,7 +250,7 @@ explore: materials_valuation_v2 {
 
 
 explore: inventory_metrics_overview {
-  sql_always_where: ${inventory_metrics_overview.client_mandt} = '{{ _user_attributes['client_id_rep'] }}'
+  sql_always_where: ${inventory_metrics_overview.client_mandt} = '{{ _user_attributes['bio_nuc_client_id_rep'] }}'
   and ${language_map.looker_locale}='{{ _user_attributes['locale'] }}';;
 
   join: inventory_by_plant {
@@ -270,7 +271,7 @@ explore: inventory_metrics_overview {
 }
 
 explore: inventory_by_plant {
-    sql_always_where: ${inventory_by_plant.client_mandt} = '{{ _user_attributes['client_id_rep'] }}'
+    sql_always_where: ${inventory_by_plant.client_mandt} = '{{ _user_attributes['bio_nuc_client_id_rep'] }}'
         and ${language_map.looker_locale}='{{ _user_attributes['locale'] }}'
     ;;
 
