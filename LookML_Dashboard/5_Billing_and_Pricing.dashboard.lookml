@@ -171,8 +171,7 @@
     explore: sales_orders
     type: single_value
     fields: [sales_orders.dash_nav]
-    filters:
-      sales_orders.creation_date_erdat_date: 2022/01/01 to 2022/04/22
+    filters: {}
     limit: 500
     column_limit: 50
     custom_color_enabled: true
