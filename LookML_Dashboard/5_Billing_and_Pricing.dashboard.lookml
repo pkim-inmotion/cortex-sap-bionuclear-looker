@@ -34,8 +34,8 @@
       sales_orders.avg_adjusted_price_global_currency]
     filters:
       customers_md.name1_name1: "-NULL"
-      sales_order_pricing.avg_variation_in_listingprice_and_adjustedprice: NOT NULL
-      sales_orders.avg_variation_of_listprice_and_adjustedprice: NOT NULL
+      sales_order_pricing.avg_variation_in_listingprice_and_adjustedprice: ''
+      sales_orders.avg_variation_of_listprice_and_adjustedprice: ''
     sorts: [sales_orders.avg_list_price_global_currency_customer desc]
     limit: 500
     x_axis_gridlines: false
