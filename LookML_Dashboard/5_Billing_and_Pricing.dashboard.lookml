@@ -104,7 +104,7 @@
     fields: [materials_md.material_text_maktx, sales_orders.avg_list_price_global_currency_customer,
       sales_orders.avg_intercompany_price_global_currency]
     filters:
-      sales_orders.avg_intercompany_price_global_currency: NOT NULL
+      sales_orders.avg_intercompany_price_global_currency: ''
     sorts: [sales_orders.avg_intercompany_price_global_currency desc]
     limit: 500
     x_axis_gridlines: false
